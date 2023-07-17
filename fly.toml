@@ -1,0 +1,19 @@
+# fly.toml app configuration file generated for grab-market-server-sh2 on 2023-07-17T12:02:16+09:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "grab-market-server-sh2"
+primary_region = "hkg"
+
+[[mounts]]
+  source = "data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
